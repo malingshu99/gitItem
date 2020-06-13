@@ -27,7 +27,6 @@ var addCls = function (element, cls) {
 var delCls = function (element, cls) {
     var baseCls = getCls(element);
     if (baseCls.indexOf(cls) != -1) {
-        /* ===============================下面这句代码不知道怎么注释，请导师帮忙注释一下？？？？======================================= */
         setCls(element, baseCls.split(cls).join(' ').replace(/\s+/g, ' ')); /*找到cls样式*/
     }
     return;
@@ -118,12 +117,9 @@ var switchNavItemsActive = function(idx){
         console.log(navItems[i]);
         delCls(navItems[i],'screen-1_nav_item_active');/* 先删除掉所有的active */
          navTip.style.left = 0+'px';/* 下划线的最开始为止 */
-        
       }
       addCls(navItems[idx],'screen-1_nav_item_active');/* 给被点击的加上avtive */
       navTip.style.left = ( idx * 96 )+'px';/* idx变动后下划线的位置 */
-      
-    
       for(var i=0;i<outLineItems.length;i++){
         delCls(outLineItems[i],'outline_item_status_active');
       }
@@ -172,7 +168,6 @@ window.onscroll = function () {
     // }
 }
 /* 导航条的双向定位 */
-
 var setNavJump = function(i,lib){
     var item = lib[i];/*？*/
     item.onclick = function(){
@@ -186,10 +181,7 @@ for(var i=0;i<navItems.length;i++){
 for(var i=0;i<outLineItems.length;i++){
     setNavJump(i,outLineItems);
   }
-
-
-  //滑动门
-
+//滑动门
 console.log(navTip+"a");
 var setTip = function(idx,lib){
   lib[idx].onmouseover =function(){
@@ -207,7 +199,6 @@ var setTip = function(idx,lib){
     }
     navTip.style.left = ( currentIdx * 96 )+'px';
   }
-
 }
 for(var i=0;i<navItems.length;i++){
     setTip(i,navItems);
